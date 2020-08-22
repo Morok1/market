@@ -2,7 +2,9 @@ package com.tele2.market.service;
 
 import com.tele2.market.dao.LotDao;
 import com.tele2.market.model.Lot;
+import com.tele2.market.model.Product;
 import com.tele2.market.model.Settings;
+import com.tele2.market.model.Type;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,15 @@ public class LotService {
         return lotDao.getAllLots();
     }
 
-    public void createLotBySettings(Settings settings) {
-        lotDao.addLot(Lot.builder()..);
+    public void createLotBySettings(Settings settings, String buyerId, String type) {
+        lotDao.addLot(buildLot(buyerId, type, settings.getProduct()));
     }
+
+    private Lot buildLot(String buyerId, String type, Product product) {
+        return Lot.builder()
+                .buyerId(buyerId)
+                .type(Type.valueOf(type))
+                .product(product).build();
+    }
+
 }

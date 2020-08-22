@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class LauncherController {
     private final LauncherService service;
 
-
     @GetMapping("/launch")
     public void launсh(){
         service.launch();
-
     }
 }

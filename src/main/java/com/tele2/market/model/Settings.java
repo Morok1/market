@@ -2,6 +2,7 @@ package com.tele2.market.model;
 
 import lombok.Data;
 
+
 @Data
 public class Settings {
     private boolean sms;
@@ -9,9 +10,8 @@ public class Settings {
     private boolean minute;
     private boolean defaultCost;
 
-    private Long gigabytes;
-    private Long minutes;
+    private Product  product;
     private Long defaultCosts;
-
+    private Integer startApplySettingsDay;
     private Double cost;
 }
