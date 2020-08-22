@@ -1,8 +1,9 @@
 import React, {useState, useEffect, Component} from 'react'
 
 import {LotService} from '../services/LotService'
-import { AddLotForm } from '../components/AddLotForm';
-import { AddLotForm2 } from '../components/AddLotForm2';
+import Fetch from "react-fetch-component";
+import BootstrapTable from 'react-bootstrap-table-next';
+
 
 
 
@@ -14,7 +15,7 @@ const LotPage = (props) => {
             //props.setSearchResult('Not fount activity, simplify your search filter');
             console.log('Not fount activity, simplify your search filter');
         } else {
-            lotListElement = lotList?.map((lot) => <li>{lot.id}</li>);
+            lotList = data.map((lot) => <li>{lot.id}</li>);
         }
     }
     
@@ -28,19 +29,38 @@ const LotPage = (props) => {
 
     let lotList = LotService.getLotList(onSuccess, onFailure);
 
+    const columns = [{
+        dataField: 'id',
+        text: 'Product ID'
+    }, {
+        dataField: 'name',
+        text: 'Product Name'
+    }, {
+        dataField: 'price',
+        text: 'Product Price'
+    }];
+
+
+
     return(
-
-        <div className="row">
-
-            <div className="col-4">
-                <h2>Лоты</h2>
-                {lotListElement}
-
-                
-                <h3>Добавить лот:</h3>
-                <AddLotForm2 />
-            </div>
-
+        <div>
+            <Fetch url="http://127.0.0.1:8080/all-lots">
+                {({ loading, data, error }) => (
+                    <div>
+                        {loading && <span>Loading...</span>}
+                        {/*{data && <BootstrapTable keyField='id' data={ data.jsonify } columns={ columns } />}*/}
+                        <table>
+                        {data && data.map((lot, i) => <div key={i}>
+                            <tr>
+                                <td>{lot.id}</td>
+                                <td>{lot.product}</td>
+                                <td>{lot.type}</td>
+                            </tr>
+                        </div>)}
+                        </table>
+                    </div>
+                )}
+            </Fetch>
         </div>
   
     )
