@@ -3,19 +3,21 @@ package com.tele2.market.service;
 import com.tele2.market.dao.AccountDao;
 import com.tele2.market.model.Account;
 import com.tele2.market.model.Settings;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 import static com.tele2.market.utils.Util.createId;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AccountService {
     private final AccountDao dao;
+    @Autowired
+    public AccountService(AccountDao dao) {
+        this.dao = dao;
+    }
+
     public List<Account> getAll() {
         return null;
     }
