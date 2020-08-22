@@ -11,7 +11,7 @@ public class LotDaoCustom implements LotDao {
     static Queue<Lot> store =  new LinkedList<>();
 
     @Override
-    public void saveLot(Lot lot) {
+    public void addLot(Lot lot) {
         store.add(lot);
     }
 

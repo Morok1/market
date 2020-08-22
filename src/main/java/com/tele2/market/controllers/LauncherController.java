@@ -15,5 +15,6 @@ public class LauncherController {
     @GetMapping("/launch")
     public void launсh(){
         service.launch();
+
     }
 }
