@@ -7,7 +7,9 @@ import lombok.Data;
 @Builder
 public class Lot {
     private Long id;
-    private Long sellerId;
-    private Long buyerId;
+    private String sellerId;
+    private String buyerId;
     private Type type;
+
+    private Product product;
 }

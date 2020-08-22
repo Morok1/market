@@ -13,7 +13,7 @@ public class AccountController {
     private final AccountService service;
 
     @GetMapping("/accounts/{id}")
-    public Account getAccountById(@PathVariable("id") Long id){
+    public Account getAccountById(@PathVariable("id") String id){
         return service.getAccountById(id);
     }
 
@@ -23,7 +23,7 @@ public class AccountController {
     }
 
     @PostMapping("/settings/id")
-    public void setSettings(@RequestParam("id") Long accountId, @RequestBody Settings settings){
+    public void setSettings(@RequestParam("id") String accountId, @RequestBody Settings settings){
         Account account = service.getById(accountId);
         account.setSettings(settings);
         service.update(accountId, account);

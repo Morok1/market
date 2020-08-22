@@ -10,8 +10,7 @@ public class Settings {
     private boolean minute;
     private boolean defaultCost;
 
-    private Long gigabytes;
-    private Long minutes;
+    private Product  product;
     private Long defaultCosts;
     private Integer startApplySettingsDay;
     private Double cost;
