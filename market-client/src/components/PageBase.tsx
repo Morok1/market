@@ -28,7 +28,7 @@ const styles={
     paddingRight: 30
   },
   clear: {
-    clear: "both" as TODO
+    clear: "both" as any
   }
 }
 

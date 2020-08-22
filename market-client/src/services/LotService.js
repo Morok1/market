@@ -1,0 +1,10 @@
+
+
+const LotService = () => {
+
+    this.getLotList = () => {
+
+        
+    }
+    
+}

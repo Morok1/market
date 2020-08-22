@@ -21,4 +21,4 @@ const getHello = (onSuccess, onFailure) => {
     .catch(error => onFailure())
 }
 
-export { getHello }
+export { getHello, host_url }

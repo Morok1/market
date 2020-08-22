@@ -1,84 +1,64 @@
-import React, {useState, useEffect, Component} from 'react';
-import {createMuiTheme} from '@material-ui/core/styles';
-import { blue, grey } from '@material-ui/core/colors';
-import AppNavBar from "../components/AppNavBar";
-import AppNavDrawer from "../components/AppNavDrawer";
-import CustomerListPage from "../pages/CustomerListPage";
-import { Route, Redirect } from "react-router-dom";
-import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
-import './App.css';
-
+import React, {useState, useEffect, Component} from 'react'
 import {HelloForm} from './modules/HelloForm'
-
-const isSmallsWindowScreen = () => {
-  return window.innerWidth <= 600;
-};
-const drawerWidth = 250;
-
-const useStyles = (navDrawerOpen, isSmallScreen) => {
-  return {
-    appBar: {
-      position: "fixed",
-      top: 0,
-      overflow: "hidden",
-      maxHeight: 58,
-      minHeight: 0,
-      width:
-        navDrawerOpen && !isSmallScreen
-          ? `calc(100% - ${drawerWidth}px)`
-          : `100%`,
-      marginLeft: navDrawerOpen && isSmallScreen ? drawerWidth : 0,
-    },
-    drawer: {
-      width: isSmallScreen ? drawerWidth : 0,
-      // flexShrink: 0,
-      overflow: "auto",
-    },
-    content: {
-      // margin: '10px 20px 20px 15px',
-      flexGrow: 1,
-      paddingLeft: navDrawerOpen && !isSmallScreen ? drawerWidth : 0,
-    },
-  };
-};
+import {LotPage} from '../pages/LotPage'
+import {SettingPage} from '../pages/SettingPage'
 
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-  const [setActivity] = useState({})
 
-  const theme = createMuiTheme({
-    palette: {
-    },
-    appBar: {
-      height: 57,
-      color: blue['600']
-    },
-    drawer: {
-      width: 230,
-      color: grey['900']
-    },
-    Button: {
-      primaryColor: blue['600'],
-    },
-  })
+const App = () => {
 
-  const appStlyes = useStyles(!isSmallsWindowScreen, !isSmallsWindowScreen);
+    const [activity, setActivity] = useState({})
 
-  return (
+    const [searchResult, setSearchResult] = useState('You activity')
 
-    <MuiThemeProvider theme={theme}>
-      <div>
-        <AppNavBar
-          styles={appStlyes}
-          handleDrawerToggle={this.handleDrawerToggle.bind(this)}
-        ></AppNavBar>
-        <div style={appStlyes.content}>
-          <Route exact path={`/lots`} component={CustomerListPage} />
-        </div>
+    return(
+
+      <div className="container">
+        <h1 className="text-center my-sm-3">Tele 2 alt Market</h1>
+        <Router>
+              <div>
+                <ul>
+                  <li>
+                    <Link to="/lot">Лоты</Link>
+                  </li>
+                  <li>
+                    <Link to="/setting">Настройки</Link>
+                  </li>
+                  <li>
+                    <Link to="/other">Другое</Link>
+                  </li>
+                </ul>
+
+                <hr />
+
+                <Switch>
+                  <Route exact path="/lot">
+                    <LotPage />
+                  </Route>
+                  <Route path="/setting">
+                    <SettingPage />
+                  </Route>
+                </Switch>
+              </div>
+            </Router>
+          
+          <div className="row">
+              <div className="col-7 offset-1">
+                  <h2>{searchResult}</h2>
+                  <HelloForm activity={activity} />
+              </div>
+          </div>
       </div>
-    </MuiThemeProvider>
-  );
+
+    )
+
 }
 
 export default App;
