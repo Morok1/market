@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @CrossOrigin(origins = "*")
 public class UtilController {
     @PostMapping("/current-date")
-    public void setDate(@RequestParam() LocalDate localDate){
+    public void setDate(@RequestParam("date") LocalDate localDate){
         Util.setDate(localDate);
     }
 
