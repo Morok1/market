@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>hamburger</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="hamburger" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6 L32,6 L32,7.66666667 L0,7.66666667 L0,6 Z M0,15.1666667 L32,15.1666667 L32,16.8333333 L0,16.8333333 L0,15.1666667 Z M0,24.3333333 L32,24.3333333 L32,26 L0,26 L0,24.3333333 Z" id="Mask" fill="#1F2229"></path>
+    </g>
+</svg>
