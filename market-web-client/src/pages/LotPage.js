@@ -42,7 +42,7 @@ const LotPage = (props) => {
 
 
     return(
-        <div>
+        <div className="container">
             <Fetch url="http://127.0.0.1:8080/all-lots">
                 {({ loading, data, error }) => (
                     <div>
