@@ -7,5 +7,5 @@ public class Account {
     private Long id;
     private String name;
     private Role role;
-
+    private Settings settings;
 }
