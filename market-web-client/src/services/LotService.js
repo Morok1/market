@@ -33,8 +33,6 @@ let LotService = {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            redirect: 'follow',
-            referrerPolicy: 'no-referrer',
             body: JSON.stringify(data)
         })
         .then(response => {

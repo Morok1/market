@@ -35,7 +35,6 @@ const AddLotForm = (props) => {
      const handleSubmit = (event) => {
         alert('Сочинение отправлено: ' + lot.type);
         
-        
         LotService.addLot(lot, onSuccess, onFailure);
     }
 
@@ -53,7 +52,7 @@ const AddLotForm = (props) => {
       <form onSubmit={handleSubmit}>
         <label>
           Тип лота:
-          <input className="form-control" type="text" ref={(value) => lot.type = value} /> 
+          <input className="form-control" type="text"  onChange={handleChange} /> 
         </label>
         <input type="submit" value="Отправить" />
       </form>

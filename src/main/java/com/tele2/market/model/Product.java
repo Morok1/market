@@ -9,5 +9,4 @@ public class Product {
     private Long smss;
     private Long gigabytes;
     private Long minutes;
-
 }

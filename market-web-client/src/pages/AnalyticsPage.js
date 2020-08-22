@@ -6,7 +6,7 @@ import { AddLotForm2 } from '../components/AddLotForm2';
 
 
 
-const LotPage = (props) => {
+const AnalyticsPage = (props) => {
 
     const onSuccess = (data) => {
 
@@ -31,6 +31,8 @@ const LotPage = (props) => {
     return(
 
         <div className="row">
+            
+            <h2>Лоты</h2>
 
             <div className="col-4">
                 <h2>Лоты</h2>
@@ -46,4 +48,4 @@ const LotPage = (props) => {
     )
 }
 
-export {LotPage};
+export {AnalyticsPage};
