@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^16.13.1",
     "react-fetch-component": "^7.0.1",
     "react-hook-form": "^6.4.1",

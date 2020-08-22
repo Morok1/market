@@ -33,7 +33,7 @@ const AddLotForm = (props) => {
      };
 
      const handleSubmit = (event) => {
-        alert('Сочинение отправлено: ' + lot.type);
+        alert(lot.type);
         
         LotService.addLot(lot, onSuccess, onFailure);
     }

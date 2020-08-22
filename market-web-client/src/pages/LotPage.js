@@ -2,9 +2,8 @@ import React, {useState, useEffect, Component} from 'react'
 
 import {LotService} from '../services/LotService'
 import Fetch from "react-fetch-component";
-import BootstrapTable from 'react-bootstrap-table-next';
-
-
+import { AddLotForm2 } from '../components/AddLotForm2';
+//import BootstrapTable from 'react-bootstrap-table-next';
 
 
 const LotPage = (props) => {
@@ -48,19 +47,23 @@ const LotPage = (props) => {
                 {({ loading, data, error }) => (
                     <div>
                         {loading && <span>Loading...</span>}
-                        {/*{data && <BootstrapTable keyField='id' data={ data.jsonify } columns={ columns } />}*/}
                         <table>
-                        {data && data.map((lot, i) => <div key={i}>
-                            <tr>
-                                <td>{lot.id}</td>
-                                <td>{lot.product}</td>
-                                <td>{lot.type}</td>
-                            </tr>
-                        </div>)}
+                            <tbody>
+                            {data && data.map((lot, i) => 
+                            
+                                <tr key={i}>
+                                    <td>{lot.id}</td>
+                                    <td>Продукт</td>
+                                    <td>{lot.type}</td>
+                                </tr>
+                            )}
+                            </tbody>
                         </table>
                     </div>
                 )}
             </Fetch>
+
+            <AddLotForm2 />
         </div>
   
     )
