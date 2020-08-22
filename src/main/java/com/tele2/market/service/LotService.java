@@ -14,6 +14,7 @@ import java.util.Queue;
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class LotService {
+    @Autowired
     private final LotDao lotDao;
 
     public void saveLot(Lot lot) {

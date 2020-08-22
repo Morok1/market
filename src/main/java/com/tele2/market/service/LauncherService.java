@@ -3,7 +3,6 @@ package com.tele2.market.service;
 import com.tele2.market.model.Account;
 import com.tele2.market.model.Settings;
 import com.tele2.market.model.Type;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -12,10 +11,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class LauncherService {
     private final AccountService accountService;
     private final LotService lotService;
+
+    @Autowired
+    public LauncherService(AccountService accountService, LotService lotService) {
+        this.accountService = accountService;
+        this.lotService = lotService;
+    }
 
     @Scheduled(cron = "0 0 0 * * *", zone="Europe/Paris")
     public void launch() {
