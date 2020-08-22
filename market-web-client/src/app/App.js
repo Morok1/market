@@ -3,8 +3,6 @@ import {HelloForm} from './modules/HelloForm'
 import {LotPage} from '../pages/LotPage'
 import {SettingPage} from '../pages/SettingPage'
 
-
-
 import {
   BrowserRouter as Router,
   Switch,

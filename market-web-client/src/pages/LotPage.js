@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Component} from 'react'
 
 import {LotService} from '../services/LotService'
+import { AddLotForm } from '../components/AddLotForm';
 
 
 
@@ -30,6 +31,11 @@ const LotPage = (props) => {
         <div>
             Лоты
             {lotListElement}
+
+            Добавить лот:
+
+            <AddLotForm />
+
         </div>
   
     )
