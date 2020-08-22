@@ -4,6 +4,7 @@ import {LotPage} from '../pages/LotPage'
 import {SettingPage} from '../pages/SettingPage'
 
 
+
 import {
   BrowserRouter as Router,
   Switch,
