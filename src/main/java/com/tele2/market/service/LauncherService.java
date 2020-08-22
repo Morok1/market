@@ -16,9 +16,9 @@ public class LauncherService {
     private final AccountService accountService;
     private final LotService lotService;
 
-    @Scheduled
+    @Scheduled(cron = "0 0 0 * * *", zone="Europe/Paris")
     public void launch() {
-
+        executeSettings();
     }
 
     public void executeSettings(){
@@ -27,11 +27,16 @@ public class LauncherService {
         for (Account account : accounts) {
             final Settings settings = account.getSettings();
             if(settings != null){
-                if(settings.isDefaultCost()){
-                    lotService.createLotBySettings(settings);
-                }
+                createLot(settings, date.getDayOfMonth());
             }
         }
+    }
 
+    private void createLot(Settings settings, int dayOfMonth) {
+        if(dayOfMonth >= settings.getStartApplySettingsDay()){
+            if(settings.isDefaultCost()){
+                lotService.createLotBySettings(settings);
+            }
+        }
     }
 }

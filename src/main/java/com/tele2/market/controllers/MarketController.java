@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MarketController {
     private final MarketService service;
 
+
+
+
     //post установи сеттинги: Settings(bool sms, gig, minute)
     //get перевести с одного лота на другой
     //post
