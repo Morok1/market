@@ -43,8 +43,6 @@ class Datepicker extends Component {
                 }
             })
             .catch(error => console.log('Error' + error))
-
-
     };
 }
 
