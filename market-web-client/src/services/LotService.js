@@ -33,6 +33,9 @@ let LotService = {
 
         const url = host_url + '/lot';
 
+        // TODO: не смотри сюда, просто представь что этого нет
+        data.id = Math.floor(100 + Math.random() * (1000 + 1 - 100));
+
         fetch(url, {
             method: 'POST',
             mode: 'cors',

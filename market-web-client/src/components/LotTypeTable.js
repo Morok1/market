@@ -83,9 +83,21 @@ const LotTypeTable = (props) => {
     return (
         <Grid item xs={12}>
             <div> {lotName} </div>
+            <hr/>
                 {
                     list.map(item => (
-                        <div key={item}>{item.id}</div>
+                        <div key={item}>
+                            <h5>Номер лота - {item.id}</h5>
+                            <p>
+                                {item.product.gigabytes} {lotUnits} <br/>
+                            </p>
+                            <p>
+                                Продавец {item.sellerId} <br/>
+                            </p>
+                            <button className="btn btn-primary btn--small">Купить</button>
+                            <hr/>
+                        </div>
+                        
                     ))
                 }
         </Grid>

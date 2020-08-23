@@ -40,6 +40,10 @@ const DiagramElement = (props) => {
     let lotName = "Интернет";
     let lotUnits = "Гб";
 
+    let { balance } = props;
+
+    let deduction = 100 - balance;
+
     switch(props.type) {
 
         case LotEnum.INTERNET: {
@@ -77,12 +81,12 @@ const DiagramElement = (props) => {
                     fontSize: '15px',
                     fontFamily: 'sans-serif',
                     color: '#FFFFFF',
-                }}>Остаток: 53 {lotUnits}
+                }}>Остаток: {balance} {lotUnits}
             </div>
 
             <PieChart 
                 style={{ height: '260px' }}
-                label={({ dataEntry }) => 53}
+                label={({ dataEntry }) => balance }
                 labelStyle={{
                     fontSize: '20px',
                     fontFamily: 'sans-serif',
@@ -91,8 +95,8 @@ const DiagramElement = (props) => {
                 radius={30}
                 lineWidth={35}
                 data={[
-                    { title: 'One', value: 53, color: '#3FCBFF' },
-                    { title: 'Two', value: 47, color: '#FF59A3' },
+                    { title: 'One', value: balance, color: '#3FCBFF' },
+                    { title: 'Two', value: deduction, color: '#FF59A3' },
                 ]}
                 labelPosition={0}
             />
@@ -108,7 +112,7 @@ const DiagramElement = (props) => {
                     fontSize: '15px',
                     fontFamily: 'sans-serif',
                     color: '#FFFFFF',
-                }}>75 {lotUnits}
+                }}>{deduction} {lotUnits}
             </div>
 
             <div style={{
