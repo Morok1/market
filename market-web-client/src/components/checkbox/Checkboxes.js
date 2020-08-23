@@ -1,7 +1,28 @@
 import React, { Component } from "react";
 import Checkbox from "./Checkbox";
+import {LocalDateWrapper} from "../Datepicker";
 
 const OPTIONS = ["Internet", "Sms", "Minutes"];
+const host_url = 'http://127.0.0.1:8080';
+class Settings {
+    constructor(year, month, day, product, cost, startApplySettingsDay) {
+        this.year = year;
+        this.month  = month;
+        this.day  = day;
+        this.product = product;
+        this.startApplySettingsDay = startApplySettingsDay;
+        this.cost = cost;
+    };
+}
+
+class Product {
+    constructor(smss, gigabytes, minutes) {
+        this.smss = smss;
+        this.gigabytes  = gigabytes;
+        this.minutes  = minutes;
+    };
+}
+
 
 class Checkboxes extends Component {
     state = {
@@ -62,6 +83,35 @@ class Checkboxes extends Component {
 
     createCheckboxes = () => OPTIONS.map(this.createCheckbox);
 
+    save = () => {
+            const url = host_url + '/settings?id=+79620000000';
+            console.log("json" + JSON.stringify(new Settings(true, true, true,
+                new Product(3,4,5), 15,25 )));
+
+
+            fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(new Settings(true, true, true,
+                    new Product(3,4,5), 15,25 ))
+            })
+                .then(response => {
+
+                    if(response.ok) {
+                        return response.json();
+                    } else {
+                        console.log('Error');
+                    }
+                })
+                .catch(error => console.log("Error"))
+        }
+
+
+
     render() {
         return (
             <div className="container">
@@ -74,6 +124,7 @@ class Checkboxes extends Component {
                                 <button
                                     type="button"
                                     className="btn btn-outline-primary mr-2"
+
                                     onClick={this.selectAll}
                                 >
                                     Select All
@@ -85,7 +136,7 @@ class Checkboxes extends Component {
                                 >
                                     Deselect All
                                 </button>
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn btn-primary"  onClick={this.save}>
                                     Save
                                 </button>
                             </div>

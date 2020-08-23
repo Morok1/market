@@ -30,7 +30,7 @@ public class AccountDao {
     }
 
     static {
-        accounts.add(new Account(createId(), "Миша" , Role.USER, null));
+        accounts.add(new Account("+79620000000", "Миша" , Role.USER, null));
         accounts.add(new Account(createId(), "Миша" , Role.USER, null));
         accounts.add(new Account(createId(), "Миша" , Role.USER, null));
         accounts.add(new Account(createId(), "Миша" , Role.USER, null));

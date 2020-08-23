@@ -26,7 +26,7 @@ public class AccountController {
         service.save(account);
     }
 
-    @PostMapping("/settings/id")
+    @PostMapping("/settings")
     public void setSettings(@RequestParam("id") String accountId, @RequestBody Settings settings){
         service.setSettings(accountId, settings);
     }

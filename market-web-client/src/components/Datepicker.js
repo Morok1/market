@@ -6,11 +6,9 @@ import "react-datepicker/dist/react-datepicker.css";
 const host_url = 'http://127.0.0.1:8080';
 const url = host_url + '/current-date';
 export class LocalDateWrapper{
-    constructor(year, month, day) {
-         this.year = year;
-         this.month  = month;
-        this.day  = day;
-    };
+
+
+
 }
 class Datepicker extends Component {
     state = {

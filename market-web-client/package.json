@@ -15,9 +15,11 @@
     "react-fetch-component": "^7.0.1",
     "react-hook-form": "^6.4.1",
     "react-inputs-validation": "^4.4.5",
+    "react-metaforms": "^2.2.3",
     "react-minimal-pie-chart": "^8.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "simple-react-form": "^2.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
