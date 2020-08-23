@@ -1,9 +1,6 @@
 import React, { cloneElement } from 'react';
-import {LotEnum, RoleEnum} from '../enum'
-import {LotService} from '../services/LotService'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles((theme) => ({
