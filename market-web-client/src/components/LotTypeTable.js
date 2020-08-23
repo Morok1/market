@@ -87,9 +87,13 @@ const LotTypeTable = (props) => {
                 {
                     list.map(item => (
                         <div key={item}>
-                            Лот номер {item.id}<br/>
-                            {item.product.gigabytes} {lotUnits} <br/>
-                            Продавец {item.sellerId} <br/>
+                            <h5>Номер лота - {item.id}</h5>
+                            <p>
+                                {item.product.gigabytes} {lotUnits} <br/>
+                            </p>
+                            <p>
+                                Продавец {item.sellerId} <br/>
+                            </p>
                             <button className="btn btn-primary btn--small">Купить</button>
                             <hr/>
                         </div>

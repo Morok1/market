@@ -78,17 +78,17 @@ const LotGrid = (props) => {
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={3}>
                                 <Paper className={classes.paper} style={diagramComponentStyle}>
-                                    <DiagramElement type={LotEnum.INTERNET} />
+                                    <DiagramElement balance={56} type={LotEnum.INTERNET} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} sm={3}>
                                 <Paper className={classes.paper} style={diagramComponentStyle}>
-                                    <DiagramElement type={LotEnum.SMS} />
+                                    <DiagramElement balance={12} type={LotEnum.SMS} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} sm={3}>
                                 <Paper className={classes.paper} style={diagramComponentStyle}>
-                                    <DiagramElement type={LotEnum.MINUTES} />
+                                    <DiagramElement balance={72} type={LotEnum.MINUTES} />
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} sm={3}>
