@@ -2,7 +2,6 @@ package com.tele2.market.service;
 
 import com.tele2.market.model.Account;
 import com.tele2.market.model.Settings;
-import com.tele2.market.model.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -42,9 +41,8 @@ public class LauncherService {
 
     private void createLot(Settings settings, int dayOfMonth, String id) {
         if(dayOfMonth >= settings.getStartApplySettingsDay()){
-            if(settings.isDefaultCost()){
-                lotService.createLotBySettings(settings, id, Type.INTERNET.name());
-            }
+            lotService.createLotBySettings(settings, id);
         }
+
     }
 }

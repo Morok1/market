@@ -28,8 +28,6 @@ public class AccountController {
 
     @PostMapping("/settings/id")
     public void setSettings(@RequestParam("id") String accountId, @RequestBody Settings settings){
-        Account account = service.getById(accountId);
-        account.setSettings(settings);
-        service.update(accountId, account);
+        service.setSettings(accountId, settings);
     }
 }
