@@ -23,15 +23,20 @@ class Datepicker extends Component {
         return <DatePicker selected={startDate} onChange={this.handleChange} />;
     }
 
-    handleChange = startDate => {
-        console.log('Problem ' + JSON.stringify(new LocalDateWrapper(startDate)));
+    handleChange = sd => {
+        console.log('Problem ' + JSON.stringify(new LocalDateWrapper(sd.getFullYear(), sd.getMonth(), sd.getDay())));
         this.setState({
-            startDate
+            startDate: sd
         });
 
-        fetch(url+startDate.getTime(), {
-            method: 'GET',
+        fetch(url, {
+            method: 'POST',
             mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(new LocalDateWrapper(sd.getFullYear(), sd.getMonth(), sd.getDay()))
 
         })
             .then(response => {
