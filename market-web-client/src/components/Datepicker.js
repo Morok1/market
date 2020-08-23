@@ -48,6 +48,20 @@ class Datepicker extends Component {
                 }
             })
             .catch(error => console.log('Error' + error))
+
+
+        fetch(host_url+'/current_date', {
+            method: 'GET',
+            mode: 'cors',
+        })
+            .then(response => {
+                if(response.ok) {
+                    return response.json();
+                } else {
+                    console.log('Error');
+                }
+            })
+            .catch(error => console.log('Error' + error))
     };
 }
 
