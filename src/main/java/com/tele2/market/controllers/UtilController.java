@@ -14,7 +14,5 @@ public class UtilController {
     @PostMapping("/current-date")
     public void setDate(@RequestBody LocalDateWrapper date){
         Util.setDate(LocalDate.of(date.getYear(), date.getMonth(), date.getDay()));
-
     }
-
 }

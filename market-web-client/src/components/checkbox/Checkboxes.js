@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Checkbox from "./Checkbox";
 
-const OPTIONS = ["One", "Two", "Three"];
+const OPTIONS = ["Internet", "Sms", "Minutes"];
 
 class Checkboxes extends Component {
     state = {
