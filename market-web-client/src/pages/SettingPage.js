@@ -5,7 +5,7 @@ const SettingPage = (props) => {
 
     return(
         <div className="container">
-            Настройки
+            <Datepicker/>
         </div>
       )
 
