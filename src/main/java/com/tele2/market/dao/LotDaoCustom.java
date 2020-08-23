@@ -1,11 +1,13 @@
 package com.tele2.market.dao;
 
 import com.tele2.market.model.Lot;
+import com.tele2.market.model.Product;
 import com.tele2.market.model.Type;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 
 import static com.tele2.market.utils.Util.createId;
 
@@ -35,6 +37,10 @@ public class LotDaoCustom implements LotDao {
         store.add(Lot.builder().type(Type.INTERNET)
                 .buyerId(createId())
                 .sellerId(createId()).id(Long.valueOf(i))
+                .product(Product.builder().gigabytes(new Random(10).nextLong())
+                        .smss(new Random(12).nextLong())
+                        .minutes(new Random(11).nextLong())
+                        .build())
                 .build());
     }
 }
