@@ -37,9 +37,9 @@ public class LotDaoCustom implements LotDao {
         store.add(Lot.builder().type(Type.INTERNET)
                 .buyerId(createId())
                 .sellerId(createId()).id(Long.valueOf(i))
-                .product(Product.builder().gigabytes(new Random(10).nextLong())
-                        .smss(new Random(12).nextLong())
-                        .minutes(new Random(11).nextLong())
+                .product(Product.builder().gigabytes(new Random().nextInt(65)+1L)
+                        .smss(new Random().nextInt(25)+1L)
+                        .minutes(new Random().nextInt(35)+1L)
                         .build())
                 .build());
     }
