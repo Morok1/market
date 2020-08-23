@@ -49,7 +49,6 @@ const LotPage = (props) => {
                         <table>
                             <tbody>
                             {data && data.map((lot, i) => 
-                            
                                 <tr key={i}>
                                     <td>{lot.id}</td>
                                     <td>{lot.sellerId}</td>

@@ -43,6 +43,8 @@ const LotGrid = (props) => {
 
     const { lots } = props;
 
+    console.log(lots);
+
     //const [lots, setState] = useState({lots: []});
 
     const classes = useStyles();
