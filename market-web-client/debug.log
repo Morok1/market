@@ -1,0 +1,2 @@
+[0823/032522.376:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\fedor\AppData\Local\Google\Chrome\User Data\Crashpad\reports\be0377e2-41b6-4e6b-97c3-05a75957f730.dmp: Процесс не может получить доступ к файлу, так как этот файл занят другим процессом. (0x20)
+[0823/032522.759:ERROR:process_info.cc(359)] UncheckedAllocate

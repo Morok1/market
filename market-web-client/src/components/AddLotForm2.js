@@ -8,7 +8,7 @@ class AddLotForm2 extends React.Component {
         this.state = {
             id: 0,
             type: 0,    // TODO: enum
-            sellerId: "seller-1",
+            sellerId: "88005553535",
             buyerId: "buyer-1",
         };
 
@@ -65,7 +65,6 @@ class AddLotForm2 extends React.Component {
                     <input type="submit" value="Submit" />
                 </div>
 
-                
             </form>
         );
     }

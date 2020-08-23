@@ -1,7 +1,8 @@
 const LotEnum = {
     INTERNET: 0,
     SMS: 1,
-    MINUTES: 2
+    MINUTES: 2,
+    PACKAGE: 3
 }
 
 const RoleEnum = {

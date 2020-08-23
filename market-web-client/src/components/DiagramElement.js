@@ -35,63 +35,98 @@ const defaultLabelStyle = {
     fontFamily: 'sans-serif',
 };
 
-const LotGrid = (props) => {
+const DiagramElement = (props) => {
+
+    let lotName = "Интернет";
+    let lotUnits = "Гб";
+
+    switch(props.type) {
+
+        case LotEnum.INTERNET: {
+            lotName = "Интернет";
+            lotUnits = "гбайт";
+            break;
+        }
+
+        case LotEnum.SMS: {
+            lotName = "Смс";
+            lotUnits = "смс";
+            break;
+        }
+
+        case LotEnum.MINUTES: {
+            lotName = "Минуты";
+            lotUnits = "минут";
+            break;
+        }
+    }
 
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Grid container spacing={1}>
-                <Grid item xs={12} >
-                    <Paper className={classes.paper}>
 
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={4} style={diagramComponentStyle}>
-                                <Paper className={classes.paper} style={diagramComponentStyle}>
-                                    <label style={textComponentStyle}>График</label>
-                                    <PieChart
-                                        label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
-                                        labelStyle={defaultLabelStyle}
-                                        radius={35}
-                                        data={[
-                                            { title: 'One', value: 53, color: '#3FCBFF' },
-                                            { title: 'Two', value: 47, color: '#FF59A3' },
-                                        ]}
-                                    />;
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12} sm={4}>
-                                <Paper className={classes.paper}>
-                                    График
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12} sm={4}>
-                                <Paper className={classes.paper}>
-                                    График
-                                </Paper>
-                            </Grid>
-                        </Grid>
+            <h3 style={{
+                    fontSize: '20px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>{lotName}
+            </h3>
 
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <Paper className={classes.paper}>
-                        <LotTypeTable type={LotEnum.INTERNET} />
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <Paper className={classes.paper}>
-                        <LotTypeTable type={LotEnum.SMS} />
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <Paper className={classes.paper}>
-                        <LotTypeTable type={LotEnum.MINUTES} />
-                    </Paper>
-                </Grid>
-            </Grid>
-    </div>
+            <div style={{
+                    fontSize: '15px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>Остаток: 53 {lotUnits}
+            </div>
+
+            <PieChart 
+                style={{ height: '260px' }}
+                label={({ dataEntry }) => 53}
+                labelStyle={{
+                    fontSize: '20px',
+                    fontFamily: 'sans-serif',
+                    fill: '#FFFFFF',
+                }}
+                radius={30}
+                lineWidth={35}
+                data={[
+                    { title: 'One', value: 53, color: '#3FCBFF' },
+                    { title: 'Two', value: 47, color: '#FF59A3' },
+                ]}
+                labelPosition={0}
+            />
+
+            <h4 style={{
+                    fontSize: '16px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>Использованно: 
+            </h4>
+
+            <div style={{
+                    fontSize: '15px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>75 {lotUnits}
+            </div>
+
+            <div style={{
+                    fontSize: '13px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>за
+            </div>
+
+            <div style={{
+                    fontSize: '15px',
+                    fontFamily: 'sans-serif',
+                    color: '#FFFFFF',
+                }}>22 дня
+            </div>
+
+        </div>
     );
 }
 
-export {LotGrid}
+export { DiagramElement }

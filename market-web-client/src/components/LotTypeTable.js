@@ -24,7 +24,7 @@ const LotTypeTable = (props) => {
 
     let lotName = "Интернет";
     let lotUnits = "Гб";
-    let list = [];
+    let list = props.data;
 
     switch(props.type) {
 
@@ -74,7 +74,7 @@ const LotTypeTable = (props) => {
 
     const handleSubmit = (event) =>  {
         event.preventDefault() // Без этого страница перезагрузится
-        LotService.addLot(lotName, onSuccess, onFailure);
+        //LotService.addLot(lotName, onSuccess, onFailure);
         console.log(lotName);
     };
 
@@ -83,13 +83,11 @@ const LotTypeTable = (props) => {
     return (
         <Grid item xs={12}>
             <div> {lotName} </div>
-            <ul>
                 {
                     list.map(item => (
-                        <li key={item}>{item}</li>
+                        <div key={item}>{item.id}</div>
                     ))
                 }
-            </ul>
         </Grid>
     );
 }

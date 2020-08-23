@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {useState, Component} from 'react'
 
 import {LotService} from '../services/LotService'
 import Fetch from "react-fetch-component";
@@ -14,7 +14,6 @@ const LotPage = (props) => {
             //props.setSearchResult('Not fount activity, simplify your search filter');
             console.log('Not fount activity, simplify your search filter');
         } else {
-            lotList = data.map((lot) => <li>{lot.id}</li>);
         }
     }
     
@@ -26,7 +25,7 @@ const LotPage = (props) => {
 
     let lotListElement = null;
 
-    let lotList = LotService.getLotList(onSuccess, onFailure);
+    LotService.getLotList(onSuccess, onFailure);
 
     const columns = [{
         dataField: 'id',
@@ -53,7 +52,7 @@ const LotPage = (props) => {
                             
                                 <tr key={i}>
                                     <td>{lot.id}</td>
-                                    <td>Продукт</td>
+                                    <td>{lot.sellerId}</td>
                                     <td>{lot.type}</td>
                                 </tr>
                             )}

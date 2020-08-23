@@ -1,50 +1,48 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { useState, Component } from 'react'
 
 import { LotGrid } from '../components/LotGrid'
 import { LotService } from '../services/LotService'
 import { LotTypeTable } from '../components/LotTypeTable'
 import { LotEnum } from '../enum';
 
+class PackagePage extends React.Component {
 
-const PackagePage = (props) => {
+    constructor(props) {
+        super(props);
 
-    const onSuccess = (data) => {
+        this.state = { lots: [] }
+    }
+
+    componentDidMount() {
+        LotService.getLotList((data) => { this.setState({lots: data})}, this.onFailure);
+    }
+
+    onSuccess(data) {
 
         if(data.hasOwnProperty('error')) {
             //props.setSearchResult('Not fount activity, simplify your search filter');
             console.log('Not fount activity, simplify your search filter');
         } else {
-            lotList = data.map((lot) => <li>{lot.id}</li>);
+            this.setState({lots: data});
         }
     }
     
-    const onFailure = () => {
+    onFailure() {
 
         console.log('Error creating activity');
     }
 
-    let lotListElement = null;
 
-    let lotList = LotService.getLotList(onSuccess, onFailure);
+    render() {
 
-    const columns = [{
-        dataField: 'id',
-        text: 'Product ID'
-    }, {
-        dataField: 'name',
-        text: 'Product Name'
-    }, {
-        dataField: 'price',
-        text: 'Product Price'
-    }];
-
-    return(
-        <div className="container">
-            <div className="row">
-                <LotGrid/>
+        return (
+            <div className="container">
+                <div className="row">
+                    <LotGrid lots={ this.state.lots }/>
+                </div>
             </div>
-        </div>
-    )
+        ); 
+    }
 }
 
-export {PackagePage};
+export { PackagePage };

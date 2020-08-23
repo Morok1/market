@@ -18,8 +18,15 @@ let LotService = {
                 console.log('Error');
             }
         })
-        .then(data => onSuccess(data))
-        .catch(error => onFailure())
+        .then(
+            (result) => {
+                onSuccess(result)
+            },
+            (error) => {
+                onFailure()
+            } 
+        )
+        //.catch(error => onFailure())
     },
 
     addLot: (data, onSuccess, onFailure) => {

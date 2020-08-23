@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {useState, Component} from 'react'
 
 const SettingPage = (props) => {
 

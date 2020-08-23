@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {useState, Component} from 'react'
 
 import {LotService} from '../services/LotService'
 import { AddLotForm } from '../components/AddLotForm';
@@ -14,7 +14,6 @@ const AnalyticsPage = (props) => {
             //props.setSearchResult('Not fount activity, simplify your search filter');
             console.log('Not fount activity, simplify your search filter');
         } else {
-            lotListElement = lotList?.map((lot) => <li>{lot.id}</li>);
         }
     }
     
@@ -26,7 +25,7 @@ const AnalyticsPage = (props) => {
 
     let lotListElement = null;
 
-    let lotList = LotService.getLotList(onSuccess, onFailure);
+    LotService.getLotList(onSuccess, onFailure);
 
     return(
 
