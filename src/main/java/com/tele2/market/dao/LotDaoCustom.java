@@ -34,7 +34,7 @@ public class LotDaoCustom implements LotDao {
     }
 
     private static void initStore(int i) {
-        store.add(Lot.builder().type(Type.INTERNET)
+        store.add(Lot.builder().type(getRandomType())
                 .buyerId(createId())
                 .sellerId(createId()).id(Long.valueOf(i))
                 .product(Product.builder().gigabytes(new Random().nextInt(65)+1L)
@@ -42,5 +42,12 @@ public class LotDaoCustom implements LotDao {
                         .minutes(new Random().nextInt(35)+1L)
                         .build())
                 .build());
+    }
+    private static Type getRandomType(){
+        final long l = new Random().nextInt(65) + 1L;
+        if(l%3==0) return Type.INTERNET;
+        if(l%3==1) return Type.MINUTES;
+        if(l%3==2) return Type.SMS;
+        return Type.INTERNET;
     }
 }
